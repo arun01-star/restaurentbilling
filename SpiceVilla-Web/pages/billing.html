@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Billing Workspace | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/orders.css">
+    <link rel="stylesheet" href="../assets/billing.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+<body class="billing-page">
+    <div class="billing-shell">
+        <aside class="billing-sidebar">
+            <a class="billing-brand" href="owner.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>FINANCE DESK</small></span></a>
+            <span class="billing-nav-label">WORKSPACE</span>
+            <a href="owner.html">Overview</a>
+            <a href="pos.html">New POS order</a>
+            <a class="active" href="billing.html" aria-current="page">Billing &amp; invoices</a>
+            <a href="kitchen.html">Kitchen tickets</a>
+            <span class="billing-nav-label billing-sidebar-bottom">ACCOUNT</span>
+            <a href="owner-login.html" data-owner-logout>Sign out</a>
+        </aside>
+        <main class="billing-main">
+            <header class="billing-topbar">
+                <div><span class="billing-overline">SPICEVILLA · FINANCE</span><h1>Billing workspace</h1></div>
+                <div class="billing-top-actions"><button class="btn billing-action-secondary" id="refreshBilling" type="button">Refresh</button><a class="btn btn-primary" href="pos.html">＋ New POS order</a></div>
+            </header>
+            <section class="billing-intro">
+                <div><span class="billing-overline">OWNER FINANCE DESK</span><h2>Invoices, payments<br>and the numbers.</h2><p>Manage restaurant-wide orders, issue invoices, record payments, and review outstanding balances.</p></div>
+                <div class="billing-tax-note"><span class="tax-note-icon" aria-hidden="true">₹</span><span><strong>GST setup</strong><small>CGST 2.5% + SGST 2.5% · demo rates</small></span></div>
+            </section>
+            <section class="billing-metrics" aria-label="Billing summary">
+                <article class="billing-metric"><span>Invoices issued</span><strong id="billingInvoiceCount">0</strong><small>Across all saved orders</small></article>
+                <article class="billing-metric"><span>Invoice value</span><strong id="billingTotal">₹0.00</strong><small>Includes sample GST</small></article>
+                <article class="billing-metric"><span>Collected</span><strong id="billingPaid">₹0.00</strong><small>Confirmed payment records</small></article>
+                <article class="billing-metric billing-metric-due"><span>Outstanding</span><strong id="billingDue">₹0.00</strong><small id="billingDueCount">0 unpaid invoices</small></article>
+            </section>
+            <section class="billing-register">
+                <div class="billing-register-head">
+                    <div><span class="billing-overline">ORDER REGISTER</span><h2>Invoices &amp; payments</h2></div>
+                    <label class="billing-search"><span class="sr-only">Search orders and invoices</span><input id="billingSearch" class="input" type="search" placeholder="Search customer, order or invoice..."></label>
+                </div>
+                <div class="billing-filters" role="group" aria-label="Filter billing records">
+                    <button class="active" type="button" data-billing-filter="All" aria-pressed="true">All orders</button>
+                    <button type="button" data-billing-filter="Unpaid" aria-pressed="false">Unpaid</button>
+                    <button type="button" data-billing-filter="Paid" aria-pressed="false">Paid</button>
+                    <button type="button" data-billing-filter="Unbilled" aria-pressed="false">Unbilled</button>
+                    <span class="billing-result-count" id="billingResultCount" aria-live="polite">0 records</span>
+                </div>
+                <p class="billing-message" id="billingMessage" role="status" aria-live="polite" hidden></p>
+                <div class="billing-table-wrap">
+                    <table class="billing-table">
+                        <thead><tr><th>Order / Invoice</th><th>Customer</th><th>Date</th><th>Order type</th><th>Amount</th><th>Payment</th><th>Action</th></tr></thead>
+                        <tbody id="billingRows"></tbody>
+                    </table>
+                </div>
+                <p class="billing-footnote">Owner workspace: orders, invoices, and payment records are stored in the configured MySQL database. GST rates are sample values; no payment gateway is connected and this is not a production tax invoice.</p>
+            </section>
+            <dialog class="billing-dialog" id="invoiceDialog">
+                <form id="invoiceForm">
+                    <button class="billing-dialog-close" type="button" data-close-dialog="invoiceDialog" aria-label="Close">×</button>
+                    <span class="billing-overline">NEW GST INVOICE</span>
+                    <h2>Issue invoice</h2>
+                    <input type="hidden" name="order_id">
+                    <label for="discountType">Discount type</label>
+                    <select class="select" id="discountType" name="discount_type"><option value="amount">Fixed amount (₹)</option><option value="percent">Percentage (%)</option></select>
+                    <label for="discountValue">Discount</label>
+                    <input class="input" id="discountValue" name="discount" type="number" min="0" step="0.01" value="0" required>
+                    <p class="billing-dialog-note">Discount cannot exceed the order subtotal. Sample CGST/SGST are calculated by the server.</p>
+                    <p class="billing-dialog-status" role="status" aria-live="polite" hidden></p>
+                    <button class="btn btn-primary" type="submit">Calculate &amp; issue invoice</button>
+                </form>
+            </dialog>
+            <dialog class="billing-dialog" id="paymentDialog">
+                <form id="paymentForm">
+                    <button class="billing-dialog-close" type="button" data-close-dialog="paymentDialog" aria-label="Close">×</button>
+                    <span class="billing-overline">PAYMENT ENTRY</span>
+                    <h2>Record payment</h2>
+                    <input type="hidden" name="bill_id">
+                    <label for="paymentMethod">Payment method</label>
+                    <select class="select" id="paymentMethod" name="method"><option>Cash</option><option>UPI</option><option>Card</option><option>Online Payment</option></select>
+                    <label for="paymentAmount">Amount (₹)</label>
+                    <input class="input" id="paymentAmount" name="amount" type="number" min="0.01" step="0.01" required>
+                    <label for="paymentReference">Transaction reference <span>(optional)</span></label>
+                    <input class="input" id="paymentReference" name="transaction_reference" maxlength="100">
+                    <p class="billing-dialog-note">This creates a pending record. Confirm received funds in the Payments workspace. No gateway is connected.</p>
+                    <p class="billing-dialog-status" role="status" aria-live="polite" hidden></p>
+                    <button class="btn btn-primary" type="submit">Save payment record</button>
+                </form>
+            </dialog>
+        </main>
+    </div>
+    <script src="../assets/api.js"></script>
+    <script src="../assets/billing.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payment Management | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/interfaces.css"><link rel="stylesheet" href="../assets/management.css">
+    <script src="../assets/api.js"></script><script src="../assets/auth.js"></script>
+</head>
+<body class="owner-dashboard management-page" data-management="payments">
+    <div class="dash">
+        <aside class="side"><h2>SpiceVilla<br><small>OWNER PORTAL</small></h2>
+            <a href="owner.html">Dashboard</a><a href="orders.html">Orders</a><a href="pos.html">POS Billing</a>
+            <a href="billing.html">Billing</a><a class="active" href="payments.html">Payments</a><a href="foods.html">Food Menu</a>
+            <a href="reports.html">Reports</a><a href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a>
+            <a href="owner-login.html" data-owner-logout>Logout</a>
+        </aside>
+        <main class="dash-main">
+            <header class="management-head"><div><span class="eyebrow">TRANSACTION REGISTER</span><h1>Payments</h1><p>Review recorded cash, UPI, and card payments and confirm settlement.</p></div></header>
+            <p class="management-message" id="managementMessage" role="status" aria-live="polite" hidden></p>
+            <section class="management-stats" aria-label="Payment totals">
+                <article class="stat"><span>Completed</span><strong id="paymentCompleted">₹0.00</strong></article>
+                <article class="stat"><span>Awaiting confirmation</span><strong id="paymentPending">₹0.00</strong></article>
+                <article class="stat"><span>Payment records</span><strong id="paymentCount">0</strong></article>
+            </section>
+            <section class="panel management-panel">
+                <div class="management-list-head"><div><h2>Payment history</h2><p>Pending entries are not treated as received revenue.</p></div><input class="input" id="paymentSearch" type="search" placeholder="Search invoice, order or method" aria-label="Search payments"></div>
+                <div class="management-tabs" role="group" aria-label="Filter payment status"><button class="active" data-payment-filter="All">All</button><button data-payment-filter="pending">Pending</button><button data-payment-filter="completed">Completed</button><button data-payment-filter="failed">Failed</button><button data-payment-filter="refunded">Refunded</button></div>
+                <div class="management-table-wrap"><table class="management-table"><thead><tr><th>Date</th><th>Invoice / Order</th><th>Customer</th><th>Method</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="paymentRows"></tbody></table></div>
+                <p class="management-note">Payment records are not a payment gateway. Verify the funds in your provider/bank before confirming payment.</p>
+            </section>
+        </main>
+    </div>
+    <script src="../assets/management.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+.customer-billing-page {
+    min-height: 100vh;
+    background: #f7f5ef;
+}
+
+.customer-billing-wrap {
+    width: min(1120px, calc(100% - 36px));
+    margin: 34px auto 60px;
+}
+
+.customer-billing-hero {
+    position: relative;
+    display: flex;
+    min-height: 230px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    overflow: hidden;
+    padding: clamp(24px, 5vw, 48px);
+    border-radius: 22px;
+    background: linear-gradient(120deg, #123d32, #27604b);
+    color: #fff;
+}
+
+.customer-billing-hero h1 {
+    margin: 12px 0;
+    color: #fff;
+    font: 600 clamp(32px, 5vw, 48px) 'Playfair Display', serif;
+}
+
+.customer-billing-hero p {
+    max-width: 560px;
+    margin: 0 0 22px;
+    color: #dce9e1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.customer-billing-hero-mark {
+    display: grid;
+    width: 140px;
+    height: 140px;
+    flex: 0 0 140px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    color: rgba(255,255,255,.82);
+    font: 500 74px 'Playfair Display', serif;
+}
+
+.customer-billing-message {
+    margin: 18px 0;
+    color: #66746b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.customer-billing-message.is-error {
+    color: #a63e2e;
+}
+
+.customer-billing-message[hidden],
+.customer-billing-page [hidden] {
+    display: none !important;
+}
+
+.customer-billing-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.customer-billing-summary article {
+    padding: 18px;
+    border: 1px solid #e8e1d5;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.customer-billing-summary span {
+    color: #766d64;
+    font-size: 12px;
+}
+
+.customer-billing-summary strong {
+    display: block;
+    margin-top: 8px;
+    color: #173e33;
+    font: 600 clamp(20px, 3vw, 28px) 'Playfair Display', serif;
+    overflow-wrap: anywhere;
+}
+
+.customer-billing-list-panel {
+    margin-top: 18px;
+    padding: clamp(18px, 4vw, 30px);
+    border: 1px solid #e8e1d5;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(56,39,30,.045);
+}
+
+.customer-billing-list-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.customer-billing-list-heading h2 {
+    margin: 7px 0 0;
+    color: #173e33;
+    font: 600 26px 'Playfair Display', serif;
+}
+
+.customer-billing-list {
+    display: grid;
+    gap: 12px;
+}
+
+.customer-invoice-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(100px, .7fr)) auto;
+    align-items: center;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid #eee8dd;
+    border-radius: 13px;
+    background: #fffefa;
+}
+
+.customer-invoice-identity strong,
+.customer-invoice-identity span {
+    display: block;
+}
+
+.customer-invoice-identity strong {
+    color: #173e33;
+    font-size: 14px;
+}
+
+.customer-invoice-identity span,
+.customer-invoice-data span {
+    margin-top: 5px;
+    color: #766d64;
+    font-size: 11px;
+}
+
+.customer-invoice-data strong {
+    display: block;
+    margin-top: 5px;
+    color: #493427;
+    font-size: 13px;
+}
+
+.customer-invoice-status {
+    display: inline-flex;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 30px;
+    background: #fff1df;
+    color: #9a5a18;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.customer-invoice-status.is-paid {
+    background: #e8f4eb;
+    color: #236239;
+}
+
+.customer-billing-empty {
+    padding: 32px 18px;
+    border: 1px dashed #d9d3c8;
+    border-radius: 14px;
+    color: #766d64;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.customer-billing-empty strong {
+    display: block;
+    color: #493427;
+    font-size: 15px;
+}
+
+.customer-billing-note {
+    margin: 18px 0 0;
+    color: #82796f;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+    .customer-billing-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .customer-invoice-card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .customer-invoice-card .btn {
+        grid-column: 1 / -1;
+    }
+
+    .customer-billing-hero-mark {
+        width: 92px;
+        height: 92px;
+        flex-basis: 92px;
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 540px) {
+    .customer-billing-hero-mark {
+        display: none;
+    }
+
+    .customer-billing-list-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

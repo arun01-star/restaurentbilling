@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Owner Portal | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/orders.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+
+<body class="owner-dashboard">
+    <div class="dash">
+        <aside class="side">
+            <h2>SpiceVilla<br><small style="font:11px 'DM Sans';color:#b6c6c0">OWNER PORTAL</small></h2><a class="active" href="owner.html">Dashboard</a><a href="orders.html">Orders</a><a href="pos.html">POS Billing</a><a href="billing.html">Billing</a><a href="payments.html">Payments</a><a href="foods.html">Food Menu</a><a href="reports.html">Reports</a><a href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a><a href="owner-login.html" data-owner-logout>Logout</a></aside>
+        <main class="dash-main">
+            <p class="management-message" id="pageStatus" role="status" aria-live="polite" hidden></p>
+            <div class="dash-head">
+                <div><span class="eyebrow">RESTAURANT MANAGEMENT</span>
+                    <h1>Good Morning, Owner</h1>
+                </div><a class="btn btn-primary" href="pos.html">Open POS</a></div>
+            <div class="stats">
+                <div class="stat"><span>Today's Revenue</span><strong id="ownerTodayRevenue">₹0</strong></div>
+                <div class="stat"><span>Today's Orders</span><strong id="ownerTodayOrders">0</strong></div>
+                <div class="stat"><span>Average Order</span><strong id="ownerAverageOrder">₹0</strong></div>
+                <div class="stat"><span>Pending Orders</span><strong id="ownerPendingOrders">0</strong></div>
+            </div><br>
+            <section class="panel incoming-orders-panel" id="incoming-orders">
+                <div class="incoming-orders-heading">
+                    <div><span class="eyebrow">LIVE ORDER QUEUE</span>
+                        <h2>Incoming Orders</h2>
+                    </div>
+                    <span class="incoming-order-count" id="incomingOrderCount" aria-live="polite">0 new</span>
+                </div>
+                <div class="incoming-order-list" id="incomingOrders" aria-live="polite">
+                    <div class="incoming-empty"><strong>No incoming orders right now</strong><span>Orders placed from the customer menu will appear here automatically.</span></div>
+                </div>
+            </section>
+            <section class="panel owner-billing-panel" id="billing">
+                <div class="billing-heading">
+                    <div><span class="eyebrow">GST &amp; PAYMENTS</span>
+                        <h2>Billing &amp; Invoices</h2>
+                    </div>
+                    <a class="btn btn-primary" href="billing.html">Open owner billing →</a>
+                </div>
+                <div class="billing-summary">
+                    <div class="stat"><span>Invoices issued</span><strong id="ownerBillCount">0</strong></div>
+                    <div class="stat"><span>Outstanding</span><strong id="ownerUnpaidTotal">₹0</strong></div>
+                    <div class="stat"><span>Paid</span><strong id="ownerPaidTotal">₹0</strong></div>
+                </div>
+                <div class="billing-table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Invoice</th>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Bill description</th>
+                                <th>Subtotal</th>
+                                <th>GST</th>
+                                <th>Total</th>
+                                <th>Payment</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ownerBillsList"><tr><td colspan="9">Invoices load from the billing database.</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+            <div class="panel" id="orders">
+                <div class="section-head">
+                    <h2>Live Orders</h2><a class="text-link" href="kitchen.html">Open Kitchen →</a></div>
+                <table class="table">
+                    <tr>
+                        <th>Order</th>
+                        <th>Customer</th>
+                        <th>Type</th>
+                        <th>Table</th>
+                        <th>Amount</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                    <tbody id="ownerRecentOrders"><tr><td colspan="7">Orders load from the database.</td></tr></tbody>
+                </table>
+            </div><br>
+            <div class="panel">
+                <h2>Restaurant Operations</h2>
+                <div class="stats">
+                    <div class="stat"><span>Best Seller</span><strong id="ownerBestSeller">—</strong></div>
+                    <div class="stat"><span>Top Dish Quantity</span><strong id="ownerBestSellerCount">0</strong></div>
+                    <div class="stat"><span>Sales Trend</span><strong><a href="reports.html">View report →</a></strong></div>
+                    <div class="stat"><span>Operations</span><strong><a href="orders.html">Manage orders →</a></strong></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../assets/orders.js"></script>
+</body>
+
+</html>

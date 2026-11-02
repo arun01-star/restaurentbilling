@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Order confirmation | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <link rel="stylesheet" href="../assets/customer-pages.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/confirmation.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>100% Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="customer.html">My Account</a></nav>
+    </header>
+    <main class="customer-page-wrap">
+        <p class="customer-page-status" id="confirmationStatus" role="status" aria-live="polite">Loading your order…</p>
+        <section id="confirmationContent" hidden>
+            <header class="customer-page-hero">
+                <span class="eyebrow">ORDER RECEIVED</span>
+                <h1>Thank you for your order.</h1>
+                <p id="confirmationIntro"></p>
+            </header>
+            <article class="customer-page-panel">
+                <h2>Order details</h2>
+                <p id="confirmationMeta"></p>
+                <ul class="customer-page-items" id="confirmationItems"></ul>
+                <div class="invoice-total-line is-grand"><span>Order total</span><strong id="confirmationTotal"></strong></div>
+                <p class="customer-page-status" id="confirmationPayment"></p>
+                <p class="invoice-actions">
+                    <a class="btn btn-primary" href="customer.html#orders">Track order</a>
+                    <a class="btn" href="menu.html">Continue browsing</a>
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

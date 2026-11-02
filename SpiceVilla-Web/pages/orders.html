@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Order Management | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/interfaces.css"><link rel="stylesheet" href="../assets/management.css">
+    <script src="../assets/api.js"></script><script src="../assets/auth.js"></script>
+</head>
+<body class="owner-dashboard management-page" data-management="orders">
+    <div class="dash">
+        <aside class="side"><h2>SpiceVilla<br><small>OWNER PORTAL</small></h2>
+            <a href="owner.html">Dashboard</a><a href="orders.html" class="active">Orders</a><a href="pos.html">POS Billing</a>
+            <a href="billing.html">Billing</a><a href="payments.html">Payments</a><a href="foods.html">Food Menu</a>
+            <a href="reports.html">Reports</a><a href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a>
+            <a href="owner-login.html" data-owner-logout>Logout</a>
+        </aside>
+        <main class="dash-main">
+            <header class="management-head"><div><span class="eyebrow">ORDER OPERATIONS</span><h1>Order management</h1><p>Review live tickets and move each order through its service status.</p></div><a class="btn btn-primary" href="pos.html">＋ New POS order</a></header>
+            <p class="management-message" id="managementMessage" role="status" aria-live="polite" hidden></p>
+            <section class="panel management-panel">
+                <div class="management-toolbar">
+                    <div class="management-tabs" role="group" aria-label="Filter orders">
+                        <button class="active" data-order-filter="All" type="button">All</button><button data-order-filter="New" type="button">New</button>
+                        <button data-order-filter="Accepted" type="button">Accepted</button><button data-order-filter="Preparing" type="button">Preparing</button>
+                        <button data-order-filter="Ready" type="button">Ready</button><button data-order-filter="Completed" type="button">Completed</button><button data-order-filter="Cancelled" type="button">Cancelled</button>
+                    </div>
+                    <input class="input" id="orderSearch" type="search" placeholder="Search order or customer" aria-label="Search order or customer">
+                </div>
+                <div class="management-table-wrap"><table class="management-table"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Type</th><th>Total</th><th>Status</th><th>Update</th></tr></thead><tbody id="orderRows"></tbody></table></div>
+            </section>
+        </main>
+    </div>
+    <dialog class="customer-detail-dialog" id="orderDialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="orderDetails"></div></dialog>
+    <script src="../assets/management.js"></script>
+</body>
+</html>

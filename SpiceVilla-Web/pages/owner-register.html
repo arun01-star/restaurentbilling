@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Owner Account | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/auth.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+<body class="auth-page auth-owner">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>Restaurant Management</small></span></a>
+        <nav aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="owner-login.html">Owner Sign In</a>
+        </nav>
+    </header>
+    <main class="auth-wrap auth-owner">
+        <section class="auth-panel">
+            <div class="auth-intro">
+                <span class="eyebrow">FIRST-TIME SETUP</span>
+                <h1>Create your<br>owner account.</h1>
+                <p>Set up secure access to your restaurant management portal.</p>
+            </div>
+            <div>
+                <p class="auth-form-status" id="ownerSetupStatus" role="status" aria-live="polite">Checking owner setup availability…</p>
+                <form class="form auth-form" id="ownerRegistrationForm" hidden>
+                    <label for="owner-register-name">Your name</label>
+                    <input class="input" id="owner-register-name" name="name" autocomplete="name" maxlength="120" required>
+                    <label for="owner-register-email">Email address</label>
+                    <input class="input" id="owner-register-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                    <label for="owner-register-password">Password</label>
+                    <input class="input" id="owner-register-password" name="password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required>
+                    <label for="owner-register-confirm-password">Confirm password</label>
+                    <input class="input" id="owner-register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="10" maxlength="128" required>
+                    <button class="btn btn-primary" type="submit">Create owner account</button>
+                    <p class="auth-form-status" id="ownerRegistrationStatus" role="status" aria-live="polite" hidden></p>
+                    <a class="text-link auth-center-link" href="owner-login.html">Already have an owner account? Sign in</a>
+                </form>
+            </div>
+            <p class="auth-demo-note">Initial account setup works only from the restaurant computer. After the first owner is created, additional owner accounts must be provisioned by an administrator.</p>
+        </section>
+    </main>
+</body>
+</html>

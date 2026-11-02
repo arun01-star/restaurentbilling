@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Customer Management | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/interfaces.css"><link rel="stylesheet" href="../assets/management.css">
+    <script src="../assets/api.js"></script><script src="../assets/auth.js"></script>
+</head>
+<body class="owner-dashboard management-page" data-management="customers">
+    <div class="dash">
+        <aside class="side"><h2>SpiceVilla<br><small>OWNER PORTAL</small></h2>
+            <a href="owner.html">Dashboard</a><a href="orders.html">Orders</a><a href="pos.html">POS Billing</a>
+            <a href="billing.html">Billing</a><a href="payments.html">Payments</a><a href="foods.html">Food Menu</a>
+            <a href="reports.html">Reports</a><a class="active" href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a>
+            <a href="owner-login.html" data-owner-logout>Logout</a>
+        </aside>
+        <main class="dash-main">
+            <header class="management-head"><div><span class="eyebrow">CUSTOMER DIRECTORY</span><h1>Customers</h1><p>Customer contact details, order frequency, and order history.</p></div></header>
+            <p class="management-message" id="managementMessage" role="status" aria-live="polite" hidden></p>
+            <section class="panel management-panel"><div class="management-list-head"><div><h2>Registered customers</h2><p id="customerCount">Loading…</p></div><input class="input" id="customerSearch" type="search" placeholder="Search name, email or phone" aria-label="Search customers"></div>
+                <div class="management-table-wrap"><table class="management-table"><thead><tr><th>Customer</th><th>Contact</th><th>Orders</th><th>Lifetime value</th><th>Joined</th><th>Details</th></tr></thead><tbody id="customerRows"></tbody></table></div>
+            </section>
+        </main>
+    </div>
+    <dialog class="customer-detail-dialog" id="customerDialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div id="customerDetails"></div></dialog>
+    <script src="../assets/management.js"></script>
+</body>
+</html>

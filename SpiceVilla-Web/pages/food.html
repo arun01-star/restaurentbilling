@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dish details | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <link rel="stylesheet" href="../assets/customer-pages.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/app.js" defer></script>
+    <script src="../assets/food-detail.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>100% Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="customer.html">Customer</a><a href="login.html">Login</a></nav>
+    </header>
+    <main class="customer-page-wrap">
+        <p class="customer-page-status" id="foodDetailStatus" role="status" aria-live="polite">Loading dish details…</p>
+        <section class="customer-page-panel food-detail-layout" id="foodDetail" hidden>
+            <img class="food-detail-image" id="foodDetailImage" alt="">
+            <div>
+                <span class="eyebrow" id="foodDetailCategory"></span>
+                <h1 id="foodDetailName"></h1>
+                <strong class="food-detail-price" id="foodDetailPrice"></strong>
+                <p class="food-detail-description" id="foodDetailDescription"></p>
+                <p class="customer-page-status" id="foodDetailAvailability"></p>
+                <button class="btn btn-primary" id="foodDetailAdd" type="button">Add to Cart</button>
+                <a class="text-link" href="menu.html">← Back to menu</a>
+            </div>
+        </section>
+    </main>
+    <a class="cart-fab" href="customer.html#cart" aria-label="Go to cart"><span aria-hidden="true">🛒</span> Cart <span class="cart-count">0</span></a>
+</body>
+</html>

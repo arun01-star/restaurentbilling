@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sales Reports | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/interfaces.css"><link rel="stylesheet" href="../assets/management.css">
+    <script src="../assets/api.js"></script><script src="../assets/auth.js"></script>
+</head>
+<body class="owner-dashboard management-page" data-management="reports">
+    <div class="dash">
+        <aside class="side"><h2>SpiceVilla<br><small>OWNER PORTAL</small></h2>
+            <a href="owner.html">Dashboard</a><a href="orders.html">Orders</a><a href="pos.html">POS Billing</a>
+            <a href="billing.html">Billing</a><a href="payments.html">Payments</a><a href="foods.html">Food Menu</a>
+            <a class="active" href="reports.html">Reports</a><a href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a>
+            <a href="owner-login.html" data-owner-logout>Logout</a>
+        </aside>
+        <main class="dash-main">
+            <header class="management-head"><div><span class="eyebrow">BUSINESS PERFORMANCE</span><h1>Sales reports</h1><p>Compare order volume, revenue, payments, and best-selling dishes.</p></div><div class="report-controls"><label for="reportPeriod">Report period</label><select id="reportPeriod" class="select"><option value="daily">Today</option><option value="weekly">This week</option><option value="monthly">This month</option></select><button class="btn management-secondary" id="downloadReport" type="button">Download CSV</button></div></header>
+            <p class="management-message" id="managementMessage" role="status" aria-live="polite" hidden></p>
+            <section class="management-stats"><article class="stat"><span>Revenue</span><strong id="reportRevenue">₹0.00</strong></article><article class="stat"><span>Orders</span><strong id="reportOrders">0</strong></article><article class="stat"><span>Pending orders</span><strong id="reportPending">0</strong></article><article class="stat"><span>Cancelled value</span><strong id="reportCancelled">₹0.00</strong></article></section>
+            <div class="management-columns report-columns">
+                <section class="panel management-panel"><h2>Sales by day</h2><div class="report-chart" id="reportChart" aria-label="Revenue chart"></div></section>
+                <section class="panel management-panel"><h2>Best-selling dishes</h2><div id="reportBestSellers" class="report-rank-list"></div></section>
+            </div>
+            <section class="panel management-panel"><h2>Recent payment transactions</h2><div class="management-table-wrap"><table class="management-table"><thead><tr><th>Date</th><th>Invoice</th><th>Order</th><th>Method</th><th>Amount</th><th>Status</th></tr></thead><tbody id="reportPayments"></tbody></table></div></section>
+        </main>
+    </div>
+    <script src="../assets/management.js"></script>
+</body>
+</html>

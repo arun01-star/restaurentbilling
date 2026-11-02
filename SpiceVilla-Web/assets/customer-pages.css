@@ -1,0 +1,221 @@
+.customer-page-wrap {
+    width: min(1120px, calc(100% - 32px));
+    margin: 38px auto 60px;
+}
+
+.customer-page-hero {
+    margin-bottom: 20px;
+    padding: clamp(24px, 5vw, 46px);
+    border-radius: 22px;
+    background: linear-gradient(120deg, #163f33, #28634d);
+    color: white;
+}
+
+.customer-page-hero h1 {
+    margin: 10px 0;
+    color: white;
+    font: 600 clamp(30px, 5vw, 44px) 'Playfair Display', serif;
+}
+
+.customer-page-hero p {
+    max-width: 650px;
+    color: #dce9e1;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.customer-page-panel {
+    margin-top: 16px;
+    padding: clamp(18px, 4vw, 30px);
+    border: 1px solid #eee4d7;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 8px 24px rgba(56, 39, 30, .055);
+}
+
+.customer-page-panel h2 {
+    color: #493427;
+    font: 600 24px 'Playfair Display', serif;
+}
+
+.customer-page-items {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.customer-page-items li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid #f0eee9;
+    color: #594b3d;
+    font-size: 13px;
+}
+
+.customer-page-status {
+    margin: 10px 0;
+    color: #66746b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.customer-page-status.is-error {
+    color: #a63e2e;
+}
+
+.customer-page-status[hidden] {
+    display: none;
+}
+
+body.customer-dashboard [hidden] {
+    display: none !important;
+}
+
+.food-detail-layout h1 {
+    margin: 10px 0;
+    color: #173e33;
+    font: 600 clamp(30px, 5vw, 42px) 'Playfair Display', serif;
+}
+
+.food-detail-layout .text-link {
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.food-title h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.food-title h3 a:hover {
+    color: #a9571e;
+}
+
+.food-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .85fr);
+    gap: 28px;
+    align-items: center;
+}
+
+.food-detail-image {
+    width: 100%;
+    min-height: 320px;
+    max-height: 520px;
+    border-radius: 18px;
+    background: #f2eee5;
+    object-fit: cover;
+}
+
+.food-detail-price {
+    display: block;
+    margin: 12px 0;
+    color: #a9571e;
+    font-size: 24px;
+}
+
+.food-detail-description {
+    color: #766d64;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.invoice-paper {
+    padding: clamp(18px, 5vw, 40px);
+}
+
+.invoice-header,
+.invoice-total-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.invoice-header {
+    padding-bottom: 18px;
+    border-bottom: 3px solid #123d32;
+}
+
+.invoice-header h2 {
+    margin: 0;
+    color: #123d32;
+}
+
+.invoice-lines {
+    width: 100%;
+    margin: 22px 0;
+    border-collapse: collapse;
+}
+
+.invoice-lines th,
+.invoice-lines td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee8dd;
+    text-align: left;
+    font-size: 12px;
+}
+
+.invoice-lines th {
+    color: #766d64;
+    text-transform: uppercase;
+}
+
+.invoice-totals {
+    width: min(390px, 100%);
+    margin-left: auto;
+}
+
+.invoice-total-line {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee8dd;
+    color: #6d6255;
+    font-size: 13px;
+}
+
+.invoice-total-line.is-grand {
+    color: #123d32;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+@media (max-width: 720px) {
+    .food-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .food-detail-image {
+        min-height: 230px;
+        max-height: 340px;
+    }
+
+    .invoice-header {
+        flex-direction: column;
+    }
+}
+
+@media print {
+    .site-header,
+    .invoice-actions,
+    .customer-page-hero,
+    .customer-page-status {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    .customer-page-wrap {
+        width: 100%;
+        margin: 0;
+    }
+
+    .customer-page-panel {
+        border: 0;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>POS Billing | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/pos.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+<body class="pos-page">
+    <header class="site-header">
+        <a class="brand" href="owner.html"><span class="brand-mark">SV</span><span><b>SpiceVilla POS</b><small>Point of Sale &amp; Billing</small></span></a>
+        <nav><a href="owner.html">Dashboard</a><a href="billing.html">Billing</a><a href="kitchen.html">Kitchen</a><a href="owner-login.html" data-owner-logout>Logout</a></nav>
+    </header>
+    <main class="container">
+        <div class="dash-head">
+            <div><span class="eyebrow">WALK-IN BILLING</span><h1>New POS Order</h1></div>
+            <button class="btn" id="clearBillButton" type="button">Clear bill</button>
+        </div>
+        <div class="pos">
+            <section aria-label="Menu items">
+                <div class="toolbar">
+                    <input id="posSearch" class="input" type="search" aria-label="Search menu item" placeholder="Search menu item...">
+                    <select class="select" id="posCategory" aria-label="Filter by category">
+                        <option value="All">All categories</option><option>Starters</option><option>Main Course</option><option>Rice &amp; Biryani</option><option>Breads</option><option>Beverages</option><option>Desserts</option>
+                    </select>
+                </div>
+                <p class="menu-results" id="posResults" aria-live="polite"></p>
+                <div class="item-grid" id="posItems"></div>
+            </section>
+            <aside class="bill" aria-label="Current bill">
+                <h2>Current Bill</h2>
+                <label for="posCustomer">Customer name</label>
+                <input class="input" id="posCustomer" value="Walk-in Customer" autocomplete="name">
+                <label for="posOrderType">Order type</label>
+                <select class="select" id="posOrderType"><option>Dine-in</option><option>Takeaway</option><option>Delivery</option></select>
+                <label for="posTable">Table</label>
+                <select class="select" id="posTable"><option>Table 8</option><option>Table 9</option><option>Table 10</option><option>Takeaway</option></select>
+                <div id="posBillItems" aria-live="polite"></div>
+                <div class="bill-row"><span>Subtotal</span><b id="posSubtotal">₹0.00</b></div>
+                <div class="bill-row"><span>CGST (2.5%)</span><b id="posCgst">₹0.00</b></div>
+                <div class="bill-row"><span>SGST (2.5%)</span><b id="posSgst">₹0.00</b></div>
+                <div class="bill-row bill-total"><span>Grand total</span><b id="posTotal">₹0.00</b></div>
+                <label for="posPayment">Payment method</label>
+                <select class="select" id="posPayment"><option>UPI</option><option>Cash</option><option>Card</option><option>Online Payment</option></select>
+                <button class="btn btn-primary" id="createPosOrder" type="button" disabled>Save order &amp; invoice</button>
+                <p class="pos-message" id="posMessage" role="status" aria-live="polite"></p>
+                <p class="order-demo-note">Demo billing only. This saves an order and sample GST invoice to this browser. No payment is processed.</p>
+            </aside>
+        </div>
+    </main>
+    <script src="../assets/app.js"></script>
+    <script src="../assets/pos.js"></script>
+</body>
+</html>

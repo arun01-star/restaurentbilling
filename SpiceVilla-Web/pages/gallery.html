@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Take a look inside SpiceVilla, where fresh ingredients and traditional Indian vegetarian cooking come together.">
+    <title>Our Gallery | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+</head>
+<body class="gallery-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>Pure Vegetarian</small></span></a>
+        <nav aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a class="active" href="gallery.html" aria-current="page">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a class="btn btn-primary" href="customer.html">Order Online</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </header>
+    <section class="page-hero gallery-hero">
+        <div class="gallery-hero-copy">
+            <span class="eyebrow">A LOOK INSIDE SPICEVILLA</span>
+            <h1>A little colour.<br>A lot of flavour.</h1>
+            <p>From the first sizzle in our kitchen to the last sip of lassi, every detail is made to bring people together.</p>
+        </div>
+        <aside class="gallery-hero-note">
+            <span class="gallery-note-mark" aria-hidden="true">SV</span>
+            <p><strong>Made fresh, served with heart.</strong><br>Thoughtful vegetarian cooking, rooted in tradition.</p>
+        </aside>
+    </section>
+    <main class="section gallery-section">
+        <div class="gallery-section-head">
+            <div>
+                <span class="eyebrow">FRESH FROM OUR KITCHEN</span>
+                <h2>Good food is a feast for the eyes, too.</h2>
+            </div>
+            <p>Explore a few of the flavours and moments that make a meal at SpiceVilla feel like home.</p>
+        </div>
+        <div class="gallery-grid" aria-label="Restaurant gallery">
+            <button class="food-card gallery-image gallery-tile" type="button" aria-label="View Paneer Tikka photo">
+                <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Paneer tikka served with herbs" width="1200" height="800">
+                <span class="gallery-caption"><span><small>TANDOOR FAVOURITES</small><strong>Paneer Tikka</strong></span><span class="gallery-zoom" aria-hidden="true">↗</span></span>
+            </button>
+            <button class="food-card gallery-image gallery-tile" type="button" aria-label="View Vegetable Biryani photo">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Vegetable biryani" width="1200" height="800" loading="lazy">
+                <span class="gallery-caption"><span><small>MADE TO SHARE</small><strong>Vegetable Biryani</strong></span><span class="gallery-zoom" aria-hidden="true">↗</span></span>
+            </button>
+            <button class="food-card gallery-image gallery-tile gallery-tile-half" type="button" aria-label="View freshly baked naan photo">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Freshly baked naan bread" width="1000" height="750" loading="lazy">
+                <span class="gallery-caption"><span><small>HOT FROM THE TANDOOR</small><strong>Fresh Naan</strong></span><span class="gallery-zoom" aria-hidden="true">↗</span></span>
+            </button>
+            <button class="food-card gallery-image gallery-tile gallery-tile-wide" type="button" aria-label="View mango lassi photo">
+                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Chilled mango lassi" width="1200" height="800" loading="lazy">
+                <span class="gallery-caption"><span><small>A COOL, CREAMY FINISH</small><strong>Mango Lassi</strong></span><span class="gallery-zoom" aria-hidden="true">↗</span></span>
+            </button>
+        </div>
+        <section class="gallery-visit">
+            <div>
+                <span class="eyebrow">YOUR TABLE IS WAITING</span>
+                <h2>Come hungry. Leave happy.</h2>
+                <p>Make an evening of it with fresh vegetarian favourites and warm SpiceVilla hospitality.</p>
+            </div>
+            <a class="btn btn-primary" href="contact.html#reserve">Reserve a table <span aria-hidden="true">→</span></a>
+        </section>
+    </main>
+    <dialog class="gallery-lightbox" id="galleryLightbox" aria-label="Gallery image preview">
+        <button class="gallery-close" type="button" aria-label="Close image preview">×</button>
+        <img alt="">
+    </dialog>
+    <script src="../assets/app.js"></script>
+</body>
+</html>

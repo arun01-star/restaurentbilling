@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact &amp; Reservations | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+</head>
+<body class="contact-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a class="active" href="contact.html">Contact</a><a class="btn btn-primary" href="customer.html">Order Online</a></nav>
+    </header>
+    <section class="page-hero"><span class="eyebrow">CONTACT &amp; RESERVATIONS</span><h1>We'd love to host you.</h1></section>
+    <main class="container">
+        <div class="intro">
+            <section class="panel">
+                <span class="eyebrow">COME ON IN</span>
+                <h2>Visit SpiceVilla</h2>
+                <p>Jabalpur, Madhya Pradesh, India</p>
+                <p>+91 90000 00000<br>hello@spicevilla.in</p>
+                <p><b>Opening hours</b><br>Mon–Sun: 11:00 AM – 11:00 PM</p>
+                <a class="btn btn-light" href="tel:+919000000000">Call restaurant</a>
+                <a class="btn" href="https://wa.me/919000000000">WhatsApp</a>
+            </section>
+            <section class="panel" id="reserve">
+                <span class="eyebrow">TABLE RESERVATION</span>
+                <h2>Save your seat</h2>
+                <form class="form" id="reservationForm">
+                    <label for="reservationName">Full name</label><input class="input" id="reservationName" name="name" autocomplete="name" required placeholder="Your name">
+                    <label for="reservationPhone">Phone</label><input class="input" id="reservationPhone" name="phone" type="tel" autocomplete="tel" required placeholder="+91">
+                    <label for="reservationDate">Date</label><input class="input" id="reservationDate" name="date" type="date" required>
+                    <label for="reservationTime">Time</label><input class="input" id="reservationTime" name="time" type="time" required>
+                    <label for="reservationGuests">Guests</label><input class="input" id="reservationGuests" name="guests" type="number" min="1" max="20" value="2" required>
+                    <label for="reservationNotes">Special request <span>(optional)</span></label><textarea class="input" id="reservationNotes" name="notes" rows="3" placeholder="Let us know how we can help"></textarea>
+                    <button class="btn btn-primary" type="submit">Request reservation</button>
+                    <p class="reservation-status" id="reservationStatus" role="status" aria-live="polite" hidden></p>
+                </form>
+            </section>
+        </div>
+    </main>
+    <script src="../assets/app.js"></script>
+</body>
+</html>

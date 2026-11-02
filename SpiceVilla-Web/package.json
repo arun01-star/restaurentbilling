@@ -1,0 +1,11 @@
+{
+  "name": "spicevilla-restaurant-billing-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web-based restaurant billing system with a Python API and MySQL backend.",
+  "scripts": {
+    "start": "python backend/server.py",
+    "test": "python -m unittest discover -s backend -p \"test_*.py\"",
+    "create-owner": "python backend/create_owner.py"
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Invoice | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <link rel="stylesheet" href="../assets/customer-pages.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/invoice.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>100% Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="customer.html#bills">My Bills</a><a href="menu.html">Menu</a></nav>
+    </header>
+    <main class="customer-page-wrap">
+        <p class="customer-page-status" id="invoiceStatus" role="status" aria-live="polite">Loading invoice…</p>
+        <article class="customer-page-panel invoice-paper" id="invoiceContent" hidden>
+            <div class="invoice-actions">
+                <button class="btn btn-primary" id="printInvoice" type="button">Print / Save as PDF</button>
+                <a class="text-link" href="customer.html#bills">← Back to bills</a>
+            </div>
+            <div class="invoice-header">
+                <div><h2>SpiceVilla</h2><p>100% Pure Vegetarian</p></div>
+                <div><strong>TAX INVOICE</strong><p id="invoiceNumber"></p><p id="invoiceDate"></p></div>
+            </div>
+            <p id="invoiceCustomer"></p>
+            <p id="invoiceOrder"></p>
+            <table class="invoice-lines">
+                <thead><tr><th>Item</th><th>Qty</th><th>Unit price</th><th>Amount</th></tr></thead>
+                <tbody id="invoiceItems"></tbody>
+            </table>
+            <div class="invoice-totals" id="invoiceTotals"></div>
+            <p id="invoicePaymentStatus" class="customer-page-status"></p>
+            <p class="customer-page-status">GST rates shown are the configured sample rates. Verify tax details before using this invoice for statutory filing.</p>
+        </article>
+    </main>
+</body>
+</html>

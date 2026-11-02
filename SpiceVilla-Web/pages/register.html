@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create Customer Account | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/auth.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+<body class="auth-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="login.html">Customer Login</a></nav>
+    </header>
+    <main class="auth-wrap">
+        <section class="auth-panel">
+            <div class="auth-intro">
+                <span class="eyebrow">YOUR SPICEVILLA ACCOUNT</span>
+                <h1>Make room<br>for good food.</h1>
+                <p>Create an account to place orders and follow them from kitchen to table.</p>
+            </div>
+            <form class="form auth-form" id="customerRegistrationForm">
+                <label for="register-name">Full name</label>
+                <input class="input" id="register-name" name="name" autocomplete="name" maxlength="120" required>
+                <label for="register-email">Email address</label>
+                <input class="input" id="register-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                <label for="register-phone">Phone number</label>
+                <input class="input" id="register-phone" name="phone" type="tel" autocomplete="tel" maxlength="32">
+                <label for="register-password">Password</label>
+                <input class="input" id="register-password" name="password" type="password" autocomplete="new-password" minlength="10" required>
+                <label for="register-confirm-password">Confirm password</label>
+                <input class="input" id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="10" required>
+                <button class="btn btn-primary" type="submit">Create account</button>
+                <p class="auth-form-status" id="registrationStatus" role="status" aria-live="polite" hidden></p>
+                <a class="text-link auth-center-link" href="login.html">Already have an account? Sign in</a>
+            </form>
+            <p class="auth-demo-note">Your account is stored securely by the SpiceVilla server. Passwords are never stored as plain text.</p>
+        </section>
+    </main>
+</body>
+</html>

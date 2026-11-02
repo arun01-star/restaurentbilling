@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Billing | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/customer-pages.css">
+    <link rel="stylesheet" href="../assets/customer-billing.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/customer-billing.js" defer></script>
+</head>
+<body class="customer-billing-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>100% Pure Vegetarian</small></span></a>
+        <nav>
+            <a href="customer.html">My Account</a>
+            <a class="active" href="customer-billing.html" aria-current="page">My Billing</a>
+            <a href="menu.html">Browse Menu</a>
+            <a href="login.html" id="customerBillingSignIn">Sign in</a>
+            <a href="login.html" id="customerBillingLogout" hidden>Logout</a>
+        </nav>
+    </header>
+    <main class="customer-billing-wrap">
+        <section class="customer-billing-hero">
+            <div>
+                <span class="eyebrow">YOUR ACCOUNT · BILLING</span>
+                <h1>Invoices, all in one place.</h1>
+                <p>Review your SpiceVilla invoices and payment status. You can open or print any issued invoice.</p>
+                <a class="btn btn-light" href="customer.html">← Back to my account</a>
+            </div>
+            <div class="customer-billing-hero-mark" aria-hidden="true">₹</div>
+        </section>
+        <p class="customer-billing-message" id="customerBillingMessage" role="status" aria-live="polite">Loading your billing history…</p>
+        <section class="customer-billing-summary" id="customerBillingSummary" hidden aria-label="Billing summary">
+            <article><span>Invoices</span><strong id="customerInvoiceCount">0</strong></article>
+            <article><span>Total invoiced</span><strong id="customerInvoiceTotal">₹0.00</strong></article>
+            <article><span>Paid</span><strong id="customerInvoicePaid">₹0.00</strong></article>
+            <article><span>Balance due</span><strong id="customerInvoiceDue">₹0.00</strong></article>
+        </section>
+        <section class="customer-billing-list-panel">
+            <div class="customer-billing-list-heading">
+                <div><span class="eyebrow">PRIVATE TO YOUR ACCOUNT</span><h2>My invoices</h2></div>
+                <a class="text-link" href="customer.html#history">View order history →</a>
+            </div>
+            <div id="customerBillingList" class="customer-billing-list" aria-live="polite"></div>
+            <p class="customer-billing-note">Your invoice history is tied to your account. Sample GST rates are shown; online payments are not processed by this website.</p>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* POS billing experience */
+
+body:has(.pos) {
+    background: #f4f5f1
+}
+
+body:has(.pos) .site-header {
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(24, 49, 39, .05)
+}
+
+body:has(.pos) .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 36px clamp(18px, 4vw, 64px) 56px
+}
+
+body:has(.pos) .dash-head {
+    margin-bottom: 28px
+}
+
+body:has(.pos) .dash-head h1 {
+    font-size: clamp(30px, 3vw, 40px);
+    letter-spacing: -.7px
+}
+
+body:has(.pos) .pos {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 24px;
+    align-items: start
+}
+
+body:has(.pos) .toolbar {
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #e5e9e2;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(24, 49, 39, .04)
+}
+
+body:has(.pos) .toolbar .input {
+    flex: 1;
+    min-width: 220px;
+    background: #f9faf8
+}
+
+body:has(.pos) .toolbar .select {
+    min-width: 145px;
+    background: #f9faf8
+}
+
+body:has(.pos) .item-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+body:has(.pos) .pos-item {
+    position: relative;
+    border-color: #e7eae4;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(30, 48, 37, .045);
+    transition: transform .2s, box-shadow .2s, border-color .2s
+}
+
+body:has(.pos) .pos-item:hover {
+    transform: translateY(-3px);
+    border-color: #c8d8cb;
+    box-shadow: 0 12px 26px rgba(30, 48, 37, .12)
+}
+
+body:has(.pos) .pos-item img {
+    height: 142px;
+    display: block
+}
+
+body:has(.pos) .pos-item span {
+    min-height: 66px;
+    padding: 12px 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.4
+}
+
+body:has(.pos) .bill {
+    top: 102px;
+    border: 1px solid #e3e8e1;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(26, 47, 36, .08)
+}
+
+body:has(.pos) .bill h2 {
+    margin: 0 0 18px;
+    color: var(--green);
+    font: 600 24px 'Playfair Display'
+}
+
+body:has(.pos) #billItems {
+    max-height: 320px;
+    overflow: auto;
+    border-top: 1px solid #edf0eb;
+    border-bottom: 1px solid #edf0eb;
+    padding: 8px 0;
+    margin-bottom: 14px
+}
+
+body:has(.pos) #billItems:empty {
+    display: none
+}
+
+body:has(.pos) #billItems:not(:empty) {
+    min-height: 48px
+}
+
+body:has(.pos) .bill-row {
+    align-items: center;
+    gap: 12px;
+    padding: 4px 0;
+    color: #657168;
+    font-size: 13px
+}
+
+body:has(.pos) .bill-row b {
+    color: #253c30;
+    white-space: nowrap
+}
+
+body:has(.pos) .bill-total {
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px dashed #dce3da;
+    color: var(--green);
+    font-size: 16px
+}
+
+body:has(.pos) .bill-total b {
+    font-size: 22px;
+    color: var(--green)
+}
+
+body:has(.pos) .bill .select {
+    min-height: 46px;
+    border-color: #e1e7df;
+    background: #fafbf9
+}
+
+body:has(.pos) .bill>.btn {
+    min-height: 48px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(18, 61, 50, .18)
+}
+
+body:has(.pos) .bill>.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 9px 18px rgba(18, 61, 50, .22)
+}
+
+@media(max-width:1100px) {
+    body:has(.pos) .pos {
+        grid-template-columns: minmax(0, 1fr) 330px
+    }
+    body:has(.pos) .item-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:820px) {
+    body:has(.pos) .pos {
+        grid-template-columns: 1fr
+    }
+    body:has(.pos) .bill {
+        position: static
+    }
+    body:has(.pos) .item-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:560px) {
+    body:has(.pos) .container {
+        padding: 24px 15px 36px
+    }
+    body:has(.pos) .dash-head {
+        align-items: flex-start;
+        gap: 14px
+    }
+    body:has(.pos) .dash-head .btn {
+        padding: 11px 13px;
+        white-space: nowrap
+    }
+    body:has(.pos) .item-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px
+    }
+    body:has(.pos) .pos-item img {
+        height: 112px
+    }
+    body:has(.pos) .pos-item span {
+        font-size: 12px;
+        padding: 10px;
+        min-height: 58px
+    }
+    body:has(.pos) .toolbar {
+        gap: 9px;
+        padding: 11px
+    }
+    body:has(.pos) .toolbar .input {
+        min-width: 100%
+    }
+    body:has(.pos) .toolbar .select {
+        min-width: 0;
+        flex: 1;
+        padding: 11px 8px;
+        font-size: 13px
+    }
+}

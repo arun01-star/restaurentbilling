@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Food Management | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="../assets/interfaces.css"><link rel="stylesheet" href="../assets/management.css">
+    <script src="../assets/api.js"></script><script src="../assets/auth.js"></script>
+</head>
+<body class="owner-dashboard management-page" data-management="foods">
+    <div class="dash">
+        <aside class="side"><h2>SpiceVilla<br><small>OWNER PORTAL</small></h2>
+            <a href="owner.html">Dashboard</a><a href="orders.html">Orders</a><a href="pos.html">POS Billing</a>
+            <a href="billing.html">Billing</a><a href="payments.html">Payments</a><a class="active" href="foods.html">Food Menu</a>
+            <a href="reports.html">Reports</a><a href="customers.html">Customers</a><a href="kitchen.html">Kitchen</a>
+            <a href="owner-login.html" data-owner-logout>Logout</a>
+        </aside>
+        <main class="dash-main">
+            <header class="management-head"><div><span class="eyebrow">MENU CATALOGUE</span><h1>Food management</h1><p>Keep item details, prices, categories, and availability current.</p></div></header>
+            <p class="management-message" id="managementMessage" role="status" aria-live="polite" hidden></p>
+            <div class="management-columns">
+                <section class="panel management-form-panel">
+                    <span class="eyebrow" id="foodFormEyebrow">ADD TO THE MENU</span><h2 id="foodFormTitle">New food item</h2>
+                    <form id="foodForm" class="management-form">
+                        <input type="hidden" name="id">
+                        <label for="foodName">Dish name</label><input class="input" id="foodName" name="name" maxlength="120" required>
+                        <label for="foodCategory">Category</label><select class="select" id="foodCategory" name="category_id" required></select>
+                        <label for="foodPrice">Price (₹)</label><input class="input" id="foodPrice" name="price" type="number" min="0" step="0.01" required>
+                        <label for="foodDescription">Description</label><textarea class="input" id="foodDescription" name="description" rows="3" maxlength="2000"></textarea>
+                        <label for="foodImage">Food image (PNG, JPEG or WebP, max 2 MB)</label><input class="input" id="foodImage" name="image" type="file" accept="image/png,image/jpeg,image/webp">
+                        <label class="management-check"><input id="foodAvailable" name="is_available" type="checkbox" checked> Available to order</label>
+                        <div class="management-form-actions"><button class="btn btn-primary" type="submit" id="saveFoodButton">Add food item</button><button class="btn management-secondary" type="button" id="cancelFoodEdit" hidden>Cancel edit</button></div>
+                    </form>
+                    <hr class="management-divider">
+                    <form id="categoryForm" class="category-form"><label for="categoryName">Add a category</label><div><input class="input" id="categoryName" name="name" maxlength="80" required><button class="btn btn-primary" type="submit">Add</button></div></form>
+                    <div id="categoryList" class="category-list" aria-live="polite"></div>
+                </section>
+                <section class="panel management-panel">
+                    <div class="management-list-head"><div><h2>Menu items</h2><p>Items in saved customer orders keep their historical names and prices.</p></div><input class="input" id="foodSearch" type="search" placeholder="Search menu" aria-label="Search menu items"></div>
+                    <div class="management-table-wrap"><table class="management-table"><thead><tr><th>Dish</th><th>Category</th><th>Price</th><th>Availability</th><th>Actions</th></tr></thead><tbody id="foodRows"></tbody></table></div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="../assets/management.js"></script>
+</body>
+</html>

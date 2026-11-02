@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kitchen Display | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/orders.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+<body class="kitchen-page">
+    <header class="site-header">
+        <a class="brand" href="owner.html"><span class="brand-mark">SV</span><span><b>SpiceVilla Kitchen</b><small>Kitchen Display System</small></span></a>
+        <nav><a href="owner.html">Owner Dashboard</a><a class="btn btn-primary" href="pos.html">POS</a><a href="owner-login.html" data-owner-logout>Logout</a></nav>
+    </header>
+    <main class="container">
+        <div class="dash-head">
+            <div><span class="eyebrow">LIVE KITCHEN QUEUE</span><h1>Order tickets</h1></div>
+            <span class="badge" id="kitchenActiveCount" aria-live="polite">0 active tickets</span>
+        </div>
+        <div class="kitchen-toolbar">
+            <div class="kitchen-filters" role="group" aria-label="Filter kitchen orders">
+                <button class="active" type="button" data-kitchen-filter="Active" aria-pressed="true">Active</button>
+                <button type="button" data-kitchen-filter="New" aria-pressed="false">New</button>
+                <button type="button" data-kitchen-filter="Preparing" aria-pressed="false">Preparing</button>
+                <button type="button" data-kitchen-filter="Ready" aria-pressed="false">Ready</button>
+            </div>
+            <span class="kitchen-count">Tickets update when orders are placed or advanced.</span>
+        </div>
+        <section class="kds" id="kitchenOrders" aria-live="polite" aria-label="Kitchen order tickets"></section>
+    </main>
+    <script src="../assets/orders.js"></script>
+</body>
+</html>

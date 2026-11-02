@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Customer Login | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/auth.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+
+<body class="auth-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>Pure Vegetarian</small></span></a>
+        <nav><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="customer.html" data-customer-entry>Customer</a><a class="btn btn-primary" href="owner-login.html">Owner Login</a></nav>
+    </header>
+    <main class="auth-wrap auth-customer">
+        <section class="auth-panel">
+            <div class="auth-intro">
+                <span class="eyebrow">CUSTOMER ACCESS</span>
+                <h1>Welcome to SpiceVilla</h1>
+                <p>Sign in to order your favourites and keep track of every meal.</p>
+            </div>
+            <div class="auth-role-switch" aria-label="Choose sign-in type">
+                <a class="auth-role active" href="login.html" aria-current="page">
+                    <span class="auth-role-icon" aria-hidden="true">U</span>
+                    <span><strong>Customer</strong><small>Order and track meals</small></span>
+                </a>
+                <a class="auth-role" href="owner-login.html">
+                    <span class="auth-role-icon" aria-hidden="true">O</span>
+                    <span><strong>Owner</strong><small>Manage restaurant</small></span>
+                </a>
+            </div>
+            <form class="form auth-form" id="customerLoginForm">
+                <label for="customer-email">Mobile number / Email</label>
+                <input class="input" id="customer-email" name="customer-email" type="email" autocomplete="username" required placeholder="you@example.com">
+                <label for="customer-password">Password</label>
+                <input class="input" id="customer-password" name="customer-password" type="password" autocomplete="current-password" required placeholder="••••••••">
+                <button class="btn btn-primary" type="submit">Customer Login</button>
+                <p class="auth-form-status" id="loginStatus" role="status" aria-live="polite" hidden></p>
+                <a class="btn auth-secondary" href="register.html">Create Account</a>
+                <a class="text-link auth-center-link" href="menu.html">Browse as Guest</a>
+            </form>
+            <div class="auth-divider"><span>or</span></div>
+            <div class="google-signin" id="googleSignInButton" aria-label="Sign in with Google"></div>
+            <p class="google-signin-status" id="googleSignInStatus" role="status" aria-live="polite"></p>
+            <details class="google-signin-setup" id="googleSignInSetup" hidden>
+                <summary>Set up Google sign-in</summary>
+                <ol>
+                    <li>Open the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">Google Cloud Credentials page</a> and select or create a project.</li>
+                    <li>Configure the OAuth consent screen, then create an OAuth client ID for a <strong>Web application</strong>.</li>
+                    <li>Add this authorized JavaScript origin: <code>http://127.0.0.1:8000</code>. No redirect URI is needed for this sign-in button.</li>
+                    <li>Copy the client ID into <code>backend\.env</code> as <code>GOOGLE_CLIENT_ID=your-client-id</code>, then restart SpiceVilla.</li>
+                </ol>
+                <p>Only the public client ID belongs here. Never paste a client secret into the website or chat.</p>
+            </details>
+            <p class="auth-demo-note">Customer accounts and orders require the SpiceVilla server. Guest browsing is available without signing in.</p>
+        </section>
+    </main>
+</body>
+
+</html>

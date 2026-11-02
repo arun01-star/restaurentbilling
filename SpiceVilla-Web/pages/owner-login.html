@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Owner Sign In | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/auth.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+    <script src="../assets/auth.js"></script>
+</head>
+
+<body class="auth-page auth-owner">
+    <header class="site-header">
+        <a class="brand" href="../index.html">
+            <span class="brand-mark">SV</span>
+            <span><b>SpiceVilla</b><small>Restaurant Management</small></span>
+        </a>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="auth-wrap auth-owner">
+        <section class="auth-panel">
+            <div class="auth-intro">
+                <span class="eyebrow">RESTAURANT MANAGEMENT</span>
+                <h1>Owner portal</h1>
+                <p>Sign in to manage restaurant operations, billing, and incoming orders.</p>
+            </div>
+            <a class="btn btn-primary auth-order-cta" href="menu.html">Click here to order <span aria-hidden="true">→</span></a>
+            <form class="form auth-form" id="ownerLoginForm">
+                <label for="owner-email">Owner email or username</label>
+                <input class="input" id="owner-email" name="owner-email" type="email" autocomplete="username" placeholder="owner@example.com" required>
+                <label for="owner-password">Password</label>
+                <input class="input" id="owner-password" name="owner-password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                <button class="btn btn-primary" type="submit">Sign in to Owner Portal</button>
+                <p class="auth-form-status" id="loginStatus" role="status" aria-live="polite" hidden></p>
+                <a class="text-link auth-center-link" href="owner-register.html">First time here? Create the owner account</a>
+            </form>
+            <p class="auth-demo-note">For security, online setup is available only on this computer and only before the first owner account is created.</p>
+        </section>
+    </main>
+</body>
+
+</html>

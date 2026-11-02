@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Menu | SpiceVilla</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/interfaces.css">
+    <script src="../assets/api.js"></script>
+</head>
+<body class="menu-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">SV</span><span><b>SpiceVilla</b><small>100% Pure Vegetarian</small></span></a>
+        <nav aria-label="Main navigation"><a href="../index.html">Home</a><a class="active" href="menu.html" aria-current="page">Menu</a><a href="customer.html">Customer</a><a href="login.html">Login</a><a class="btn btn-primary" href="customer.html">Order Online</a></nav>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </header>
+    <section class="page-hero"><span class="eyebrow">THE SPICEVILLA MENU</span><h1>Indian flavours, thoughtfully prepared.</h1><p>Every dish is 100% vegetarian and freshly prepared. Find a favourite, then add it to your cart.</p></section>
+    <main class="container">
+        <div class="toolbar" role="group" aria-label="Filter menu dishes">
+            <input id="search" class="input" type="search" aria-label="Search dishes" placeholder="Search dishes...">
+            <button class="filter-btn active" type="button" data-cat="All" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-cat="Starters" aria-pressed="false">Starters</button>
+            <button class="filter-btn" type="button" data-cat="Main Course" aria-pressed="false">Main Course</button>
+            <button class="filter-btn" type="button" data-cat="Rice & Biryani" aria-pressed="false">Rice &amp; Biryani</button>
+            <button class="filter-btn" type="button" data-cat="Breads" aria-pressed="false">Breads</button>
+            <button class="filter-btn" type="button" data-cat="Beverages" aria-pressed="false">Beverages</button>
+            <button class="filter-btn" type="button" data-cat="Desserts" aria-pressed="false">Desserts</button>
+        </div>
+        <p class="menu-results" id="menuResults" aria-live="polite"></p>
+        <div class="menu-grid" id="menuGrid"></div>
+    </main>
+    <a class="cart-fab" href="customer.html" aria-label="Go to cart, items:"><span aria-hidden="true">🛒</span> Cart <span class="cart-count">0</span></a>
+    <script src="../assets/app.js"></script>
+    <script>
+        let category = 'All';
+        let menuItems = [];
+        async function renderMenu() {
+            const query = document.getElementById('search').value.trim().toLowerCase();
+            try {
+                if (!menuItems.length) menuItems = await loadFoods();
+            } catch (error) {
+                document.getElementById('menuResults').textContent = error.message;
+                document.getElementById('menuGrid').innerHTML = '';
+                return;
+            }
+            const dishes = menuItems.filter((food) =>
+                (category === 'All' || food.cat === category) &&
+                `${food.name} ${food.desc} ${food.cat}`.toLowerCase().includes(query)
+            );
+            document.getElementById('menuResults').textContent = `${dishes.length} ${dishes.length === 1 ? 'dish' : 'dishes'} shown`;
+            document.getElementById('menuGrid').innerHTML = dishes.length
+                ? dishes.map(foodCard).join('')
+                : '<p class="menu-empty">No dishes match your search. Try another dish or category.</p>';
+        }
+        document.querySelectorAll('.filter-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach((item) => {
+                    item.classList.remove('active');
+                    item.setAttribute('aria-pressed', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+                category = button.dataset.cat;
+                void renderMenu();
+            });
+        });
+        document.getElementById('search').addEventListener('input', () => void renderMenu());
+        void renderMenu();
+        updateCartCount();
+    </script>
+</body>
+</html>
